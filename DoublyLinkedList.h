@@ -7,9 +7,15 @@ class DoublyLinkedList
 {
 public:
     DoublyLinkedList();
+    int getSize();
+    bool insert(int value);
+    bool isEmpty();
+    Node* getFirst(); // temporary, used for testing
+    Node* getLast(); // same here
 private:
-    Node* first;
-
+    Node* m_first;
+    Node* m_last;
+    int m_size;
 };
 
 #endif

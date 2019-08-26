@@ -1,10 +1,10 @@
 Lab1: main.o DoublyLinkedList.o Node.o
-	g++ main.o DoublyLinkedList.o Node.o -o Lab1
+	g++ -std=c++11 main.o DoublyLinkedList.o Node.o -o Lab1
 main.o: main.cpp DoublyLinkedList.h Node.h
-	g++ -c main.cpp
+	g++ -std=c++11 -c main.cpp
 DoublyLinkedList.o: DoublyLinkedList.cpp DoublyLinkedList.h
-	g++ -c DoublyLinkedList.cpp
+	g++ -std=c++11 -c DoublyLinkedList.cpp
 Node.o: Node.cpp Node.h
-	g++ -c Node.cpp
+	g++ -std=c++11 -c Node.cpp
 clean:
 	rm -f test *.o
