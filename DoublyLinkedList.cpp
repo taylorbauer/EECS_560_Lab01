@@ -65,17 +65,15 @@ bool DoublyLinkedList::remove(int value){
     int nodeCount = 0;
     for (int i = 0; i < m_size; i++){
         if (nodePtr->getValue() == value){
-            if (nodeCount == 0 && m_size == 1){
+            if (m_size == 1){
                 m_first = nullptr;
                 m_last = nullptr;
             }
             else if (nodeCount == 0){
-                cout << "I think it's at the beginning";
                 m_first = m_first->getNext();
                 m_first->setPrev(nullptr);
             }
             else if (nodeCount == (m_size - 1)){
-                cout << "I think it's at the end";
                 m_last = m_last->getPrev();
                 m_last->setNext(nullptr);
             }
@@ -94,4 +92,17 @@ bool DoublyLinkedList::remove(int value){
         nodePtr = nodePtr->getNext();
     }
     return false;
+}
+
+int DoublyLinkedList::smallest(){
+    Node* nodeTracker = m_first;
+    int smallest = nodeTracker->getValue();
+    nodeTracker = nodeTracker->getNext();
+    for (int i = 1; i < m_size; i ++) {
+        if (nodeTracker->getValue() < smallest){
+            smallest = nodeTracker->getValue();
+        }
+        nodeTracker = nodeTracker->getNext();
+    }
+    return smallest;
 }

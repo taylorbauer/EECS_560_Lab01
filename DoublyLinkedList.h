@@ -14,6 +14,7 @@ public:
     Node* getLast(); // same here
     void print();
     bool remove(int value);
+    int smallest();
 private:
     Node* m_first;
     Node* m_last;

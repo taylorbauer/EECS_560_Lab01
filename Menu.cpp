@@ -46,7 +46,12 @@ void Menu::run() {
 
         // Smallest
         else if (selection == 3){
-            
+            if (m_list.getSize() < 1) {
+                cout << "Make sure your list is populated!";
+            }
+            else {
+                cout << "Smallest value is: " << m_list.smallest() << '\n';
+            }
         }
 
         // Largest
