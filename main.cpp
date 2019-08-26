@@ -1,5 +1,6 @@
 #include "DoublyLinkedList.h"
 #include "Node.h"
+#include "Menu.h"
 
 #include <iostream>
 #include <fstream>
@@ -26,7 +27,13 @@ int main(int argc, char *argv[])
         cout << "Error opening file\n";
     }
 
-    cout << "Your first value is " << myList.getFirst()->getValue() << '\n';
-    cout << "Your last value is " << myList.getLast()->getValue() << '\n';
+    // The following lines were used for early testing
+    // cout << "Your first value is " << myList.getFirst()->getValue() << '\n';
+    // cout << "Your last value is " << myList.getLast()->getValue() << '\n';
+
+    Menu myMenu(myList);
+    myMenu.run();
+
+    return 0;
 
 }

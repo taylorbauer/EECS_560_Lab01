@@ -12,6 +12,8 @@ public:
     bool isEmpty();
     Node* getFirst(); // temporary, used for testing
     Node* getLast(); // same here
+    void print();
+    bool remove(int value);
 private:
     Node* m_first;
     Node* m_last;
