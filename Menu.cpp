@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 Menu::Menu(DoublyLinkedList list){
@@ -77,7 +78,25 @@ void Menu::run() {
 
         // Merge
         else if (selection == 6){
+            cin.ignore();
+            char newListChars[256];
+            cout << "Type out the list you would like to merge.  Make sure each integer is separated by a space:\n";
+            cin.getline(newListChars, 256);
+
+            // Converting user input to stringstream
+            string newListString(newListChars);
+            stringstream listStream;
+            listStream << newListString;
+
+            // Converting stringstream to new list
+            DoublyLinkedList* userList = new DoublyLinkedList;
+            int tempValue;
+            while(!listStream.eof()) {
+                listStream >> tempValue;
+                userList->insert(tempValue);
+            }
             
+            m_list.merge(userList);
         }
 
         // Print

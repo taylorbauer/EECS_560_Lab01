@@ -1,5 +1,6 @@
 #include "DoublyLinkedList.h"
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 DoublyLinkedList::DoublyLinkedList() {
@@ -147,4 +148,34 @@ bool DoublyLinkedList::reverse(){
         }
         return true;
     }
+}
+
+void DoublyLinkedList::merge(DoublyLinkedList* userList) {
+    // Copy and delete each value from the old list to the user list
+    int tempValue;
+    while (m_size != 0){
+        tempValue = m_first->getValue();
+        userList->insert(tempValue);
+        remove(tempValue);
+    }
+
+    // Now user list is a long list containing both lists, and orignal list is empty
+    // Scan through the new list, copy the smallest value over to the original list, and delete it from the new
+    int smallest;
+    Node* nodeTracker;
+    while (userList->getSize() > 0) {
+        smallest = userList->getFirst()->getValue();
+        nodeTracker = userList->getFirst();
+        for (int i = 0; i < userList->getSize(); i++) {
+
+            if (smallest > nodeTracker->getValue()) {
+                smallest = nodeTracker->getValue();
+            }
+            nodeTracker = nodeTracker->getNext();
+        }
+
+        insert(smallest);
+        userList->remove(smallest);
+    }
+    cout << "\nLists merged and sorted successfully!\n";
 }

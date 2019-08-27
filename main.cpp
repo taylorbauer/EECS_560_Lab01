@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     myFile.open(argv[1]);
 
     int value;
+    
     if (myFile.is_open()){
         while (myFile >> value){
             myList.insert(value);

@@ -18,6 +18,7 @@ public:
     int largest();
     float average();
     bool reverse();
+    void merge(DoublyLinkedList* newList);
 private:
     Node* m_first;
     Node* m_last;
