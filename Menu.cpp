@@ -40,7 +40,7 @@ void Menu::run() {
                 cout << "Deletion successfull!\n";
             }
             else {
-                cout << "Unable to delete " << deletion << " from the list.  Make sure it's even in there!\n";
+                cout << "Unable to delete the value " << deletion << " from the list.  Make sure it's even in there!\n";
             }
         }
 
@@ -56,12 +56,23 @@ void Menu::run() {
 
         // Largest
         else if (selection == 4){
+            if (m_list.getSize() < 1) {
+                cout << "Make sure your list is populated!";
+            }
+            else {
+                cout << "Largest value is: " << m_list.largest() << '\n';
+            }
             
         }
 
         // Average
         else if (selection == 5){
-            
+            if (m_list.getSize() < 1) {
+                cout << "Make sure your list is populated!";
+            }
+            else {
+                cout << "Average of list is: " << m_list.average() << '\n';
+            }
         }
 
         // Merge
@@ -76,6 +87,13 @@ void Menu::run() {
 
         // Reverse
         else if (selection == 8){
+            if (m_list.reverse()) {
+                cout << "List successfully reversed.\n";
+            }
+            else
+            {
+                cout << "Unable to reverse list, make sure it is populated!\n";
+            }
             
         }
     }

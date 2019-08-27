@@ -106,3 +106,45 @@ int DoublyLinkedList::smallest(){
     }
     return smallest;
 }
+
+int DoublyLinkedList::largest(){
+    Node* nodeTracker = m_first;
+    int largest = nodeTracker->getValue();
+    nodeTracker = nodeTracker->getNext();
+    for (int i = 1; i < m_size; i ++) {
+        if (nodeTracker->getValue() > largest){
+            largest = nodeTracker->getValue();
+        }
+        nodeTracker = nodeTracker->getNext();
+    }
+    return largest;
+}
+
+float DoublyLinkedList::average(){
+    int sum = 0;
+    Node* nodeTracker = m_first;
+    for (int i = 0; i < m_size; i++) {
+        sum = sum + nodeTracker->getValue();
+        nodeTracker = nodeTracker->getNext();
+    }
+    return ((float)sum / m_size);
+}
+
+bool DoublyLinkedList::reverse(){
+    if (m_size < 1){
+        return false;
+    }
+    else {
+        Node* nodeTracker = m_last;
+        int lastValue = 0;
+        int staticSize = m_size;  // Forces our loop to work
+        for (int i = 0; i < staticSize; i++) {
+            insert(nodeTracker->getValue());
+            nodeTracker = nodeTracker->getPrev();
+        }
+        for (int i = 0; i < staticSize; i++) {
+            remove(m_first->getValue());
+        }
+        return true;
+    }
+}

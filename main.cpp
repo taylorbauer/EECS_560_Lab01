@@ -22,17 +22,15 @@ int main(int argc, char *argv[])
         while (myFile >> value){
             myList.insert(value);
         }
+        myFile.close();
+        cout << "\nSuccessfully copied data from " << argv[1] << endl << endl;
+
+        Menu myMenu(myList);
+        myMenu.run();
     }
     else {
         cout << "Error opening file\n";
     }
-
-    // The following lines were used for early testing
-    // cout << "Your first value is " << myList.getFirst()->getValue() << '\n';
-    // cout << "Your last value is " << myList.getLast()->getValue() << '\n';
-
-    Menu myMenu(myList);
-    myMenu.run();
 
     return 0;
 

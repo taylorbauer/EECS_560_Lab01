@@ -15,6 +15,9 @@ public:
     void print();
     bool remove(int value);
     int smallest();
+    int largest();
+    float average();
+    bool reverse();
 private:
     Node* m_first;
     Node* m_last;
