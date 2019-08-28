@@ -85,17 +85,18 @@ void Menu::run() {
 
             // Converting user input to stringstream
             string newListString(newListChars);
-            stringstream listStream;
-            listStream << newListString;
-
-            // Converting stringstream to new list
             DoublyLinkedList* userList = new DoublyLinkedList;
-            int tempValue;
-            while(!listStream.eof()) {
-                listStream >> tempValue;
-                userList->insert(tempValue);
+            if (newListString != "") {
+                stringstream listStream;
+                listStream << newListString;
+
+                // Converting stringstream to new list
+                int tempValue;
+                while(!listStream.eof()) {
+                    listStream >> tempValue;
+                    userList->insert(tempValue);
+                }
             }
-            
             m_list.merge(userList);
         }
 

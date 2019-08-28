@@ -163,6 +163,10 @@ void DoublyLinkedList::merge(DoublyLinkedList* userList) {
     // Scan through the new list, copy the smallest value over to the original list, and delete it from the new
     int smallest;
     Node* nodeTracker;
+    if (userList->getSize() == 0 && m_size == 0) {
+        cout << "Both lists are empty!\n\n";
+        return;
+    }
     while (userList->getSize() > 0) {
         smallest = userList->getFirst()->getValue();
         nodeTracker = userList->getFirst();
@@ -178,4 +182,5 @@ void DoublyLinkedList::merge(DoublyLinkedList* userList) {
         userList->remove(smallest);
     }
     cout << "\nLists merged and sorted successfully!\n";
+    return;
 }
