@@ -26,6 +26,11 @@ void Menu::run() {
 
         cin >> selection;
 
+        if(cin.fail()){
+            cin.ignore();
+            selection = 0;
+        }
+
         // Insert
         if (selection == 1){
             cout << "What number would you like to insert? ";
@@ -38,30 +43,30 @@ void Menu::run() {
             cout << "What number would you like to delete? ";
             cin >> deletion;
             if(m_list.remove(deletion)){
-                cout << "Deletion successfull!\n";
+                cout << "\nDeletion successfull!\n";
             }
             else {
-                cout << "Unable to delete the value " << deletion << " from the list.  Make sure it's even in there!\n";
+                cout << "\nUnable to delete the value " << deletion << " from the list.  Make sure it's even in there!\n\n";
             }
         }
 
         // Smallest
         else if (selection == 3){
             if (m_list.getSize() < 1) {
-                cout << "Make sure your list is populated!";
+                cout << "\nMake sure your list is populated!\n\n";
             }
             else {
-                cout << "Smallest value is: " << m_list.smallest() << '\n';
+                cout << "Smallest value is: " << m_list.smallest() << "\n\n";
             }
         }
 
         // Largest
         else if (selection == 4){
             if (m_list.getSize() < 1) {
-                cout << "Make sure your list is populated!";
+                cout << "\nMake sure your list is populated!\n\n";
             }
             else {
-                cout << "Largest value is: " << m_list.largest() << '\n';
+                cout << "Largest value is: " << m_list.largest() << "\n\n";
             }
             
         }
@@ -69,10 +74,10 @@ void Menu::run() {
         // Average
         else if (selection == 5){
             if (m_list.getSize() < 1) {
-                cout << "Make sure your list is populated!";
+                cout << "\nMake sure your list is populated!\n\n";
             }
             else {
-                cout << "Average of list is: " << m_list.average() << '\n';
+                cout << "\nAverage of list is: " << m_list.average() << "\n\n";
             }
         }
 
@@ -80,7 +85,7 @@ void Menu::run() {
         else if (selection == 6){
             cin.ignore();
             char newListChars[256];
-            cout << "Type out the list you would like to merge.  Make sure each integer is separated by a space:\n";
+            cout << "\nType out the list you would like to merge.  Make sure each integer is separated by a space:\n";
             cin.getline(newListChars, 256);
 
             // Converting user input to stringstream
@@ -108,15 +113,19 @@ void Menu::run() {
         // Reverse
         else if (selection == 8){
             if (m_list.reverse()) {
-                cout << "List successfully reversed.\n";
+                cout << "\nList successfully reversed.\n\n";
             }
             else
             {
-                cout << "Unable to reverse list, make sure it is populated!\n";
+                cout << "\nUnable to reverse list, make sure it is populated!\n\n";
             }
             
         }
+
+        else{
+            cout << "\nThat's not a valid selection! Please try again.\n\n";
+        }
     }
-    cout << "Goodbye!\n";
+    cout << "\nGoodbye!\n\n";
     return;
 }

@@ -6,6 +6,8 @@
 #include <fstream>
 using namespace std;
 
+//  main checks to make sure the program was called properly, creates a DoublyLinkedList, and passes
+//  it to the Menu class which handles user interaction. 
 int main(int argc, char *argv[])
 {
     if (argc != 2){

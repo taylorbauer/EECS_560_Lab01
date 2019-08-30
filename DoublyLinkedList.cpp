@@ -48,7 +48,7 @@ Node* DoublyLinkedList::getLast(){
 
 void DoublyLinkedList::print(){
     if (isEmpty()) {
-        cout << "The list is empty!\n";
+        cout << "\nThe list is empty!\n";
         return;
     }
 
@@ -164,7 +164,7 @@ void DoublyLinkedList::merge(DoublyLinkedList* userList) {
     int smallest;
     Node* nodeTracker;
     if (userList->getSize() == 0 && m_size == 0) {
-        cout << "Both lists are empty!\n\n";
+        cout << "\nBoth lists are empty!\n\n";
         return;
     }
     while (userList->getSize() > 0) {
