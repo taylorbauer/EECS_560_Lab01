@@ -1,2 +1,4 @@
 *.o
 .vscode
+.gitignore
+.DS_Store
